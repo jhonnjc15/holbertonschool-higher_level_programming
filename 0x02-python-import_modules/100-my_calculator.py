@@ -2,12 +2,11 @@
 from calculator_1 import add, sub, mul, div
 import sys
 
-
 def use_new_calculator():
     parameters = sys.argv
     if len(parameters) != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
+        print("Usage: {} <a> <operator> <b>".format(parameters[0]))
+        sys.exit(1)
     else:
         a = int(parameters[1])
         b = int(parameters[3])
@@ -21,9 +20,8 @@ def use_new_calculator():
             i = operations[index_parameter] + "({}, {})".format(a, b)
             print("{:d} {:s} {:d} = {:d}"
                   .format(a, simbols[index_parameter], b, eval(i)))
-            exit(0)
         else:
             print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+            sys.exit(1)
 if __name__ == "__main__":
     use_new_calculator()
