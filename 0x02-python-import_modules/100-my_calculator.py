@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 from calculator_1 import add, sub, mul, div
-import sys
 
 
 def use_new_calculator():
@@ -25,4 +24,5 @@ def use_new_calculator():
         sys.exit(1)
 
 if __name__ == "__main__":
+    import sys
     use_new_calculator()
