@@ -21,7 +21,9 @@ def use_new_calculator():
             i = operations[index_parameter] + "({}, {})".format(a, b)
             print("{:d} {:s} {:d} = {:d}"
                   .format(a, simbols[index_parameter], b, eval(i)))
+            exit(0)
         else:
             print("Unknown operator. Available operators: +, -, * and /")
+            exit(1)
 if __name__ == "__main__":
     use_new_calculator()
