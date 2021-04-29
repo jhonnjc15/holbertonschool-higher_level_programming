@@ -2,7 +2,7 @@
 import sys
 
 
-def prints_num_arg(): 
+def prints_num_arg():
     arguments = sys.argv
     num_arg = len(arguments) - 1
     str_argumen = "argument"
