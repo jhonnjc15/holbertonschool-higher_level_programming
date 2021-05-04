@@ -2,6 +2,10 @@
 
 
 def delete_at(my_list=[], idx=0):
-    drop_element = my_list[idx]
-    my_list.remove(drop_element)
-    return my_list
+    if my_list:
+        if (idx < 0) or (idx > len(my_list) - 1):
+            return my_list
+        else:
+            drop_element = my_list[idx]
+            my_list.remove(drop_element)
+            return my_list
