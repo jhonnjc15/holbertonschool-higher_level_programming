@@ -1,21 +1,17 @@
 #!/usr/bin/python3
 
 
-def add_zeros(lists):
-    for i in range(2):
-        if len(lists) != 2:
-            lists.append(0)
-    return lists[0:2]
-
-
 def add_tuple(tuple_a=(), tuple_b=()):
     new_tuple = []
     list_a = list(tuple_a)
     list_b = list(tuple_b)
 
-    add_zeros(list_a)
-    add_zeros(list_b)
+    for i in range(2):
+        if len(list_a) != 2:
+            list_a.append(0)
+        if len(list_b) != 2:
+            list_b.append(0)
 
-    for i, j in zip(list_a, list_b):
+    for i, j in zip(list_a[:2], list_b[:2]):
         new_tuple.append(i + j)
     return tuple(new_tuple)
