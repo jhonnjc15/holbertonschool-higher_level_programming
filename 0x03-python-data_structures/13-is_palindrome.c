@@ -1,6 +1,6 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <stdio.h>
+
+
 /**
  * is_palindrome - function in C that checks if a singly LL is a palindrome.
  * @head: pointer to pointer of first node of listint_t list
