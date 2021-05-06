@@ -12,7 +12,7 @@ def roman_to_int(roman_string):
             if roman_nums[roman_string[i - 1]] >= roman_nums[roman_string[i]]:
                     sum_ = sum_ + roman_nums[roman_string[i - 1]]
             else:
-                sum_ = sum_ - roman_nums[roman_string[i]]
+                sum_ = sum_ - roman_nums[roman_string[i - 1]]
         sum_ = sum_ + roman_nums[roman_string[-1]]
         return sum_
     else:
