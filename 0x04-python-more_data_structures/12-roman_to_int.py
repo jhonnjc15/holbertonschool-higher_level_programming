@@ -8,13 +8,12 @@ def roman_to_int(roman_string):
                   "C": 100, "D": 500, "M": 1000}
     sum_ = 0
     if len(roman_string) >= 2:
-        if roman_nums[roman_string[0]] >= roman_nums[roman_string[1]]:
-            for i in range(0, len(roman_string)):
-                sum_ = sum_ + roman_nums[roman_string[i]]
-        else:
-            for i in range(1, len(roman_string)):
-                sum_ = sum_ + roman_nums[roman_string[i]]
-            sum_ = sum_ - roman_nums[roman_string[0]]
+        for i in range(1, len(roman_string)):
+            if roman_nums[roman_string[i - 1]] >= roman_nums[roman_string[i]]:
+                    sum_ = sum_ + roman_nums[roman_string[i - 1]]
+            else:
+                sum_ = sum_ - roman_nums[roman_string[i - 1]]
+        sum_ = sum_ + roman_nums[roman_string[-1]]
         return sum_
     else:
         return roman_nums[roman_string[0]]
