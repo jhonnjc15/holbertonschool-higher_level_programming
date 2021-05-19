@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 
 
-"""4-square.py: class Square that defines a square """
+"""4-square.py: class Square that defines a square"""
 
 
 class Square:
     """Class Square"""
     def __init__(self, size=0):
-        """initialize instance with size
+        """
+        initialize instance with size
         Note:
             has to be greater than 0 and of an int class
         Args:
@@ -40,7 +41,7 @@ class Square:
             raise TypeError("size must be an integer")
 
     def area(self):
-	"""Returns the area of the square instance
+        """
         Args:
             None
         Returns:
