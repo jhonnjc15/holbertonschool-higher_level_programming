@@ -27,15 +27,15 @@ class Square:
 
     @property
     def size(self):
-        """sets the size of the square
-        Args:
-            value (int): the value to set the square lenght to
-        """
+        """returns the size of the square"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """returns the size of the square"""
+        """sets the size of the square
+        Args:
+            value (int): the value to set the square lenght to
+        """
         if type(value) is int:
             if value >= 0:
                 self.__size = value
@@ -65,8 +65,11 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     def my_print(self):
-        """prints out a square the size of the
-        square to the stdout, with position coordinate
+        """Prints the a square in # the size of the square
+        Args:
+            None
+        Returns:
+            None
         """
         for i in range(self.__position[1]):
             print("")
