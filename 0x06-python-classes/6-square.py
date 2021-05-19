@@ -73,18 +73,10 @@ class Square:
         Returns:
             None
         """
-        for i in range(self.__position[1]):
-            print("")
-
         if self.__size == 0:
-            print("")
+            print()
         else:
+            for i in range(self.__position[1]):
+                print()
             for i in range(self.__size):
-                count = 0
-                for j in range(self.__size):
-                    if count == 0:
-                        for k in range(self.__position[0]):
-                            print(" ", end="")
-                        count = count + 1
-                    print("#", end="")
-                print("")
+                print(" " * self.__position[0] + "#" * self.__size)
