@@ -12,18 +12,18 @@ class Square:
             size (int): size of length
             position (int): 2 coordinate position
         """
-        if (type(position) is tuple) and (len(position) == 2):
-            self.__position = position
-        else:
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        if type(size) is int:
-            if size >= 0:
-                self.__size = size
-            else:
-                raise ValueError("size must be >= 0")
-        else:
+        if type(size) is not int:
             raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        elif (len(position) is not 2 or type(position[0]) is not int or
+              type(position[1]) is not int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif position[0] < 0 or position[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__size = size
+            self.__position = position
 
     @property
     def size(self):
@@ -59,10 +59,12 @@ class Square:
         Args:
             value (int): the tuple value to set the position
         """
-        if (type(value) is tuple) and (len(value) == 2):
-            self.__position = value
-        else:
+        if int(value[0]) is not int or int(value[1]) is not int:
             raise TypeError("position must be a tuple of 2 positive integers")
+        elif value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     def my_print(self):
         """Prints the a square in # the size of the square
@@ -71,12 +73,11 @@ class Square:
         Returns:
             None
         """
-        for i in range(self.__position[1]):
-            print("")
-
         if self.__size == 0:
             print("")
         else:
+            for i in range(self.__position[1]):
+                print("")
             for i in range(self.__size):
                 count = 0
                 for j in range(self.__size):
