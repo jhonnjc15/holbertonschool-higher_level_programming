@@ -4,13 +4,10 @@
 """
 
 
-class BaseGeometry:
+class BaseGeometry():
     """
         Create a BaseGeometry class
     """
-    def __init__(self):
-        pass
-
     def area(self):
         """
             Area method
