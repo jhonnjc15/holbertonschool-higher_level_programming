@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-"""7-base_geometry.py: MOdule that create a class BaseGeometry.
-"""
+"""7-base_geometry.py: MOdule that create a class BaseGeometry"""
 
 
-class BaseGeometry():
+class BaseGeometry:
     """
         Create a BaseGeometry class
     """
