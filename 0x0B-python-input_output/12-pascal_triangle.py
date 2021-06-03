@@ -12,7 +12,7 @@ def pascal_triangle(n):
     """
     pascal_list = [[1]]
     if n <= 0:
-        return pascal_triangle
+        return []
     else:
         for i in range(1, n):
             row_list = []
