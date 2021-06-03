@@ -6,6 +6,10 @@
 
 
 def pascal_triangle(n):
+    """Finds pascal triangle numbers up to n
+    Args:
+        n (int): the depth of pascal's triangle
+    """
     pascal_list = [[1]]
     if n <= 0:
         return pascal_triangle
