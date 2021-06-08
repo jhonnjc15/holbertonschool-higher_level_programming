@@ -24,3 +24,22 @@ class Square(Rectangle):
         """
         return "[Square] ({}) "\
                "{}/{} - {}".format(self.id, self.x, self.y, self.height)
+
+    @property
+    def size(self):
+        """Return the size if the square instance"""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        Set the size of the square
+        Args:
+            value: value to set
+        """
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.width = value
+        self.height = value
