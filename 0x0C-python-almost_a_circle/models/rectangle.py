@@ -101,9 +101,11 @@ class Rectangle(Base):
         """
         Print a rectangle with '#'s
         """
+        for i in range(self.__y):
+            print("")
+
         for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end="")
+            print(self.__x * " " + self.__width * "#", end="")
             print("")
 
     def __str__(self):
