@@ -3,6 +3,7 @@
 
 """Base module"""
 import json
+import csv
 
 
 class Base:
@@ -91,3 +92,37 @@ class Base:
             return instances_list
         except BaseException:
             return instances_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serialize a list from a class instance in csv"""
+        filename = cls.__name__ + '.csv'
+        objs = [cls.to_dictionary(obj) for obj in list_objs]
+        try:
+            with open(filename, mode='w', encoding='utf-8') as f:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == "Square":
+                    fieldnames = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                for obj in objs:
+                    writer.writerow(obj)
+        except BaseException:
+            return "[]"
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserialize a list from a class instance in csv """
+        filename = cls.__name__ + '.csv'
+        da_list = []
+        try:
+            with open(filename, mode='r') as f:
+                reader = csv.DictReader(f)
+                for obj in reader:
+                    for key, value in obj.items():
+                        obj[key] = int(value)
+                    da_list.append(obj)
+            return [cls.create(**num_objs) for num_objs in da_list]
+        except BaseException:
+            return da_list
