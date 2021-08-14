@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Script that lists all State objects that contain the
-letter a from the database hbtn_0e_6_usa
+Script that prints the State object with the name
+passed as argument from the database hbtn_0e_6_usa
 """
 
 import sys
@@ -16,7 +16,12 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id)
+    found = False
+    states = session.query(State)
     for state in states:
-        if "a" in state.name:
-            print("{}: {}".format(state.id, state.name))
+        if state.name == sys.argv[4]:
+            print("{}".format(state.id))
+            found = True
+            break
+    if found is False:
+        print("Not found")
