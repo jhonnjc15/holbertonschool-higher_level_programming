@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const number = Math.floor(Number(process.argv[2]));
+let message = 'Not a number';
 if (!isNaN(number)) {
-  console.log('My number is: ' + number);
-} else {
-  console.log('Not a number');
+  message = `My number: ${number}`;
 }
+console.log(message);
